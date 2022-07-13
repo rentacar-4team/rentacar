@@ -23,6 +23,7 @@ SOURCES += \
     member_add.cpp \
     member_edit.cpp \
     memberlist.cpp \
+    payment.cpp \
     reserv_add.cpp \
     reserv_edit.cpp \
     reservation.cpp \
@@ -38,6 +39,7 @@ HEADERS += \
     member_add.h \
     member_edit.h \
     memberlist.h \
+    payment.h \
     reserv_add.h \
     reserv_edit.h \
     reservation.h \
@@ -52,6 +54,7 @@ FORMS += \
     member_add.ui \
     member_edit.ui \
     memberlist.ui \
+    payment.ui \
     reserv_add.ui \
     reserv_edit.ui \
     reservation.ui \

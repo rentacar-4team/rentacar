@@ -101,16 +101,21 @@ void reserv_add::on_booking_btn_clicked()
         int row = ui->usertable->currentRow();
         int row2 = ui->table->currentRow();
         int num = ui->table->takeItem(row2, 6)->text().toInt();
+        int fee = ui->table->takeItem(row2, 5)->text().toInt();
+        int days = ui->reserv_time->dateTime().daysTo(ui->return_time->dateTime());
+        int charge = fee * (days+1);
 
-        sql.prepare("INSERT INTO reservation (id, car_model, car_type, fuel, charge, reserv_date, return_date) "
-                    "VALUES (?, ?, ?, ?, ?, ?, ?)");
+        sql.prepare("INSERT INTO reservation (id, car_model, car_type, fuel, charge, reserv_date, return_date, total) "
+                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
         sql.addBindValue(ui->usertable->takeItem(row,0)->text());
         sql.addBindValue(ui->table->takeItem(row2, 1)->text());
         sql.addBindValue(ui->table->takeItem(row2, 2)->text());
         sql.addBindValue(ui->table->takeItem(row2, 3)->text());
-        sql.addBindValue(ui->table->takeItem(row2, 5)->text());
+        sql.addBindValue(fee);
         sql.addBindValue(ui->reserv_time->dateTime());
         sql.addBindValue(ui->return_time->dateTime());
+        sql.addBindValue(charge);
+
         sql.exec();
         QMessageBox::information(this, "", "예약완료");
         show_time();
@@ -120,7 +125,6 @@ void reserv_add::on_booking_btn_clicked()
         QString number = QString::number(num);
         query = "UPDATE rentacar SET booking = '"
                 + number.toStdString() + "' WHERE num = '" + ui->table->takeItem(row2, 0)->text().toStdString() +"'";
-
 
         sql.exec(QString::fromStdString(query));
     }

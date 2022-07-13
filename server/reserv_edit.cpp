@@ -14,10 +14,9 @@ reserv_edit::reserv_edit(std::vector<std::string> data, QWidget *parent) :
     ui->type_txt->setText(QString::fromStdString(data[3]));
     ui->fuel_txt->setText(QString::fromStdString(data[4]));
     ui->charge_txt->setText(QString::fromStdString(data[5]));
-
-
-    QString reserv_date = QString::fromStdString(data[6] + ".0");
-    QString return_date = QString::fromStdString(data[7] + ".0");
+    ui->total_txt->setText(QString::fromStdString(data[6]));
+    QString reserv_date = QString::fromStdString(data[7] + ".0");
+    QString return_date = QString::fromStdString(data[8] + ".0");
     QString form = "yyyy-MM-dd HH:mm:ss.z";
     QDateTime dt = QDateTime::fromString(reserv_date,form);
     QDateTime dt2 = QDateTime::fromString(return_date, form);
@@ -81,17 +80,22 @@ void reserv_edit::on_tableWidget_cellDoubleClicked(int row, int column)
     ui->type_txt->setText(ui->tableWidget->takeItem(select_row, 2)->text());
     ui->fuel_txt->setText(ui->tableWidget->takeItem(select_row, 3)->text());
     ui->charge_txt->setText(ui->tableWidget->takeItem(select_row, 4)->text());
+    int fee = ui->charge_txt->text().toInt();
+    int days = ui->res_date->dateTime().daysTo(ui->ret_date->dateTime());
+    int charge = fee * (days+1);
+    ui->total_txt->setText(QString::number(charge));
     list();
 
 }
 
 void reserv_edit::on_edit_button_clicked()
 {
-    sql.prepare("UPDATE reservation SET car_model = ?, car_type = ?, fuel = ?, charge = ?, reserv_date = ?, return_date = ? WHERE num = ?");
+    sql.prepare("UPDATE reservation SET car_model = ?, car_type = ?, fuel = ?, charge = ?, total = ?, reserv_date = ?, return_date = ? WHERE num = ?");
     sql.addBindValue(ui->model_txt->text());
     sql.addBindValue(ui->type_txt->text());
     sql.addBindValue(ui->fuel_txt->text());
     sql.addBindValue(ui->charge_txt->text());
+    sql.addBindValue(ui->total_txt->text());
     sql.addBindValue(ui->res_date->dateTime());
     sql.addBindValue(ui->ret_date->dateTime());
     sql.addBindValue(ui->num_txt->text());
@@ -128,4 +132,20 @@ void reserv_edit::on_edit_button_clicked()
 
     QMessageBox::information(this, "", "수정완료");
     this->close();
+}
+
+void reserv_edit::on_res_date_dateChanged(const QDate &date)
+{
+    int fee = ui->charge_txt->text().toInt();
+    int days = ui->res_date->dateTime().daysTo(ui->ret_date->dateTime());
+    int charge = fee * (days+1);
+    ui->total_txt->setText(QString::number(charge));
+}
+
+void reserv_edit::on_ret_date_dateChanged(const QDate &date)
+{
+    int fee = ui->charge_txt->text().toInt();
+    int days = ui->res_date->dateTime().daysTo(ui->ret_date->dateTime());
+    int charge = fee * (days+1);
+    ui->total_txt->setText(QString::number(charge));
 }

@@ -20,7 +20,7 @@
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>310</y>
+     <y>340</y>
      <width>101</width>
      <height>31</height>
     </rect>
@@ -55,7 +55,7 @@
    <property name="geometry">
     <rect>
      <x>440</x>
-     <y>240</y>
+     <y>270</y>
      <width>71</width>
      <height>41</height>
     </rect>
@@ -73,9 +73,9 @@ border-radius: 5px;</string>
    <property name="geometry">
     <rect>
      <x>140</x>
-     <y>310</y>
+     <y>340</y>
      <width>521</width>
-     <height>171</height>
+     <height>131</height>
     </rect>
    </property>
   </widget>
@@ -85,7 +85,7 @@ border-radius: 5px;</string>
      <x>70</x>
      <y>40</y>
      <width>351</width>
-     <height>251</height>
+     <height>275</height>
     </rect>
    </property>
    <layout class="QFormLayout" name="formLayout">
@@ -176,6 +176,16 @@ border-radius: 5px;</string>
     </item>
     <item row="3" column="1">
      <widget class="QDateTimeEdit" name="ret_date"/>
+    </item>
+    <item row="8" column="0">
+     <widget class="QLabel" name="label_9">
+      <property name="text">
+       <string>총요금</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="1">
+     <widget class="QLineEdit" name="total_txt"/>
     </item>
    </layout>
   </widget>

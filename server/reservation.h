@@ -24,6 +24,8 @@ private slots:
 
     void on_delete_btn_clicked();
 
+    void on_pay_clicked();
+
 private:
     Ui::reservation *ui;
     std::string query;

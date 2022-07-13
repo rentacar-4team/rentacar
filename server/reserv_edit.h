@@ -24,6 +24,10 @@ private slots:
 
     void on_edit_button_clicked();
 
+    void on_res_date_dateChanged(const QDate &date);
+
+    void on_ret_date_dateChanged(const QDate &date);
+
 private:
     Ui::reserv_edit *ui;
     std::string query;
