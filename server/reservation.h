@@ -27,6 +27,7 @@ private slots:
 private:
     Ui::reservation *ui;
     std::string query;
+    std::string query2;
     QSqlQuery sql;
     QSqlRecord record;
 };

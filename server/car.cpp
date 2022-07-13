@@ -42,7 +42,7 @@ void car::list()
     ui->carlist->setHorizontalHeaderItem(2, new QTableWidgetItem("차종"));
     ui->carlist->setHorizontalHeaderItem(3, new QTableWidgetItem("연료"));
     ui->carlist->setHorizontalHeaderItem(4, new QTableWidgetItem("수량"));
-    ui->carlist->setHorizontalHeaderItem(5, new QTableWidgetItem("요금"));
+    ui->carlist->setHorizontalHeaderItem(5, new QTableWidgetItem("일일요금"));
     ui->carlist->setHorizontalHeaderItem(6, new QTableWidgetItem("에약수량"));
     ui->carlist->horizontalHeader()->setStretchLastSection(true);
 
