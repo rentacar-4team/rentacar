@@ -27,6 +27,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+
     Database DB;
     QSqlQuery sql;
     QSqlRecord record;

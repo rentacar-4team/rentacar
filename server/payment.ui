@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>결제</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(255, 255, 255);</string>
@@ -76,7 +76,7 @@ border-radius: 5px</string>
     <string>카드번호</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="card_txt">
    <property name="geometry">
     <rect>
      <x>140</x>
@@ -92,7 +92,7 @@ border-radius: 5px</string>
     <string>입력</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_2">
+  <widget class="QLineEdit" name="cardnum_txt">
    <property name="geometry">
     <rect>
      <x>140</x>
