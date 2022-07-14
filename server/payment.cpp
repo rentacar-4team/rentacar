@@ -45,13 +45,18 @@ void payment::on_point_btn_clicked()
 
 void payment::on_pay_btn_clicked()
 {
-    query = "UPDATE member SET point = '" + ui->point_txt->text().toStdString() + "' WHERE id = '" + ID + "'";
-    sql.exec(QString::fromStdString(query));
-    qDebug() << QString::fromStdString(query);
-    query = "UPDATE reservation SET pay = 'O' WHERE num = '" + reserv_num + "'";
-    sql.exec(QString::fromStdString(query));
-    qDebug() << QString::fromStdString(query);
-    QMessageBox::information(this, "", "결제완료");
-    this->close();
+    if(ui->card_txt->text() == NULL)
+        QMessageBox::warning(this, "", "카드회사를 입력하세요");
+    else if( ui->cardnum_txt->text() == NULL)
+        QMessageBox::warning(this, "", "카드번호를 입력하세요");
+    else
+    {
+        query = "UPDATE member SET point = '" + ui->point_txt->text().toStdString() + "' WHERE id = '" + ID + "'";
+        sql.exec(QString::fromStdString(query));
+        query = "UPDATE reservation SET pay = 'O' WHERE num = '" + reserv_num + "'";
+        sql.exec(QString::fromStdString(query));
+        QMessageBox::information(this, "", "결제완료");
+        this->close();
+    }
 
 }
