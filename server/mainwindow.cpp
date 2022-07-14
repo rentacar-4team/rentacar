@@ -4,6 +4,8 @@
 #include "sight.h"
 #include "car.h"
 #include "reservation.h"
+#include "chatting.h"
+#include <QMessageBox>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -55,3 +57,4 @@ void MainWindow::on_reservation_clicked()
     res.exec();
     this->show();
 }
+

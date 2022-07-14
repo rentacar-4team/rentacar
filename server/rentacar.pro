@@ -1,4 +1,4 @@
-QT       += core gui sql
+QT       += core gui sql network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -18,6 +18,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     car.cpp \
     car_edit.cpp \
+    chatting.cpp \
     main.cpp \
     mainwindow.cpp \
     member_add.cpp \
@@ -27,13 +28,16 @@ SOURCES += \
     reserv_add.cpp \
     reserv_edit.cpp \
     reservation.cpp \
+    server.cpp \
     sight.cpp \
     sight_add.cpp \
-    sight_edit.cpp
+    sight_edit.cpp \
+    thread.cpp
 
 HEADERS += \
     car.h \
     car_edit.h \
+    chatting.h \
     database.h \
     mainwindow.h \
     member_add.h \
@@ -43,13 +47,16 @@ HEADERS += \
     reserv_add.h \
     reserv_edit.h \
     reservation.h \
+    server.h \
     sight.h \
     sight_add.h \
-    sight_edit.h
+    sight_edit.h \
+    thread.h
 
 FORMS += \
     car.ui \
     car_edit.ui \
+    chatting.ui \
     mainwindow.ui \
     member_add.ui \
     member_edit.ui \
