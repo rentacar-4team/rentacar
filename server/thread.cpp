@@ -4,18 +4,12 @@ Thread::Thread(QTcpSocket * clntsocket, QObject *parent) :
     QThread(parent)
 {
     socket = clntsocket;
-    //this->socketDescriptor = ID;
-    st =true;
 }
 
 void Thread::run()
 {
     qDebug() <<"start thread";
-//    if(!socket->setSocketDescriptor(this->socketDescriptor))
-//    {
-//        emit error(socket->error());
-//        return;
-//    }
+
 
     connect(socket, SIGNAL(disconnected()), this, SLOT(disconnected()), Qt::DirectConnection);
     connect(socket, SIGNAL(readyRead()), this, SLOT(readyRead()), Qt::DirectConnection);
@@ -36,5 +30,4 @@ void Thread::disconnected()
     emit alarmSetting("채팅 종료");
     qDebug() << "disconnected";
     socket->deleteLater();
-    exit(0);
 }
