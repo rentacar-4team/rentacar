@@ -30,10 +30,13 @@ void chatting::show(QString msg)
 
 void chatting::alarm(QString message)
 {
+    query = "INSERT INTO chatting (chat) VALUES ('" + ui->textBrowser->toPlainText().toStdString() + "')";
+    sql.exec(QString::fromStdString(query));
     ui->textBrowser->append(message);
     QMessageBox::information(this, "", "채팅이 종료되었습니다");
     ui->send_btn->setEnabled(false);
     this->close();
+    thread->exit(0);
 }
 
 

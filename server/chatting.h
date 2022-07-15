@@ -3,6 +3,7 @@
 #include <QTcpSocket>
 #include <QDialog>
 #include "thread.h"
+#include "database.h"
 
 namespace Ui {
 class chatting;
@@ -26,6 +27,8 @@ private:
     Ui::chatting *ui;
     QTcpSocket * clntsocket;
     Thread *thread;
+    QSqlQuery sql;
+    std::string query;
 };
 
 #endif // CHATTING_H
