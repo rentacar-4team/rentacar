@@ -44,21 +44,5 @@ void server::newConnection()
         socket->bytesWritten(1000);
     }
 
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
