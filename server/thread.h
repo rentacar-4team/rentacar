@@ -3,7 +3,7 @@
 #include <QThread>
 #include <QTcpSocket>
 #include <QDebug>
-
+#include "database.h"
 
 class Thread : public QThread
 {
@@ -14,7 +14,8 @@ public:
 private:
     void run();
     QTcpSocket * socket;
-
+    QSqlQuery sql;
+    std::string query;
 
 signals:
     void setValue(QString msg);

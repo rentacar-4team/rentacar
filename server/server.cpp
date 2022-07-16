@@ -31,8 +31,6 @@ void server::newConnection()
     if(box.exec() == QMessageBox::Yes)
     {
         socket->write("고객센터와 연결되었습니다\n");
-        socket->flush();
-        socket->bytesWritten(1000);
         chatting chat(socket);
         chat.exec();
 
@@ -40,8 +38,6 @@ void server::newConnection()
     else
     {
         socket->write("고객센터와 연결불가능\n");
-        socket->flush();
-        socket->bytesWritten(1000);
     }
 
 }
