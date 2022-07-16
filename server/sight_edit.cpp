@@ -8,8 +8,8 @@ sight_edit::sight_edit(std::vector<std::string> data, QWidget *parent) :
     ui->setupUi(this);
     ui->num_txt->setText(QString::fromStdString(data[0]));
     ui->name_txt->setText(QString::fromStdString(data[1]));
-    ui->addr_txt->setText(QString::fromStdString(data[2]));
-    ui->type_txt->setText(QString::fromStdString(data[3]));
+    ui->type_txt->setText(QString::fromStdString(data[2]));
+    ui->addr_txt->setText(QString::fromStdString(data[3]));
 }
 
 sight_edit::~sight_edit()

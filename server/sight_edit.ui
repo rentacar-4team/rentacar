@@ -37,10 +37,10 @@
      <widget class="QLineEdit" name="name_txt"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="addr_txt"/>
+     <widget class="QLineEdit" name="type_txt"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="type_txt"/>
+     <widget class="QLineEdit" name="addr_txt"/>
     </item>
    </layout>
   </widget>
