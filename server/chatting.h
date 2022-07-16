@@ -23,6 +23,8 @@ private slots:
     void alarm(QString message);
     void on_send_btn_clicked();
 
+    void on_exit_btn_clicked();
+
 private:
     Ui::chatting *ui;
     QTcpSocket * clntsocket;

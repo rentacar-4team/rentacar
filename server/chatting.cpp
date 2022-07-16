@@ -47,9 +47,18 @@ void chatting::on_send_btn_clicked()
         std::string msg = "[고객센터]" + ui->line->text().toStdString();
         ui->line->clear();
         clntsocket->write(msg.c_str());
-        clntsocket->flush();
-        clntsocket->bytesWritten(3000);
         ui->textBrowser->append(QString::fromStdString(msg));
     }
 
+}
+
+void chatting::on_exit_btn_clicked()
+{
+    query = "INSERT INTO chatting (chat) VALUES ('" + ui->textBrowser->toPlainText().toStdString() + "')";
+    sql.exec(QString::fromStdString(query));
+    clntsocket->write("채팅종료");
+    QMessageBox::information(this, "", "채팅이 종료되었습니다");
+    ui->send_btn->setEnabled(false);
+    this->close();
+    thread->exit(0);
 }
